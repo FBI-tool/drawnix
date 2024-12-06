@@ -69,3 +69,40 @@ export const isRectangleHitFreehand = (
 export const getSelectedFreehandElements = (board: PlaitBoard) => {
   return getSelectedElements(board).filter((ele) => Freehand.isFreehand(ele));
 };
+
+// 高斯平滑算法
+export function gaussianWeight(x: number, sigma: number) {
+  return Math.exp(-(x * x) / (2 * sigma * sigma));
+}
+
+export function gaussianSmooth(points: any, sigma: number, windowSize: number) {
+  if (points.length < 2) return points;
+
+  const halfWindow = Math.floor(windowSize / 2);
+  const smoothedPoints = [];
+  
+  for (let i = 0; i < points.length; i++) {
+    let sumX = 0;
+    let sumY = 0;
+    let weightSum = 0;
+
+    // 计算窗口内的加权平均
+    for (let j = -halfWindow; j <= halfWindow; j++) {
+      const idx = i + j;
+      if (idx >= 0 && idx < points.length) {
+        const weight = gaussianWeight(j, sigma);
+        sumX += points[idx][0] * weight;
+        sumY += points[idx][1] * weight;
+        weightSum += weight;
+      }
+    }
+
+    // 归一化
+    smoothedPoints.push([
+      sumX / weightSum,
+      sumY / weightSum
+    ]);
+  }
+
+  return smoothedPoints;
+}
