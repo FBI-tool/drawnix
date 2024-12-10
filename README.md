@@ -7,7 +7,7 @@
 </p>
 <div align="center">
   <h2>
-    开源白板工具（SaaS），一体化白板，包含思维导图、流程图、自由画等
+    开源白板工具（SaaS），一体化白板，包含思维导图、流程图、自由画笔等
   <br />
   </h2>
 </div>
@@ -19,7 +19,7 @@
     </a>
     <figcaption>
       <p align="center">
-        All in one 白板，思维导图、流程图、自由画等
+        All in one 白板，思维导图、流程图、自由画笔等
       </p>
     </figcaption>
   </figure>

@@ -19,7 +19,7 @@
     </a>
     <figcaption>
       <p align="center">
-      Whiteboard with mind mapping, flowcharts, freehand drawing and more
+      Whiteboard with mind mapping, flowcharts, freehand and more
       </p>
     </figcaption>
   </figure>
